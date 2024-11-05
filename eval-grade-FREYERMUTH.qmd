@@ -94,13 +94,8 @@ grades |>
   summarise(min = min(num_grades), max = max(num_grades),average = mean(num_grades)) |>
   knitr::kable()
 
-
-
-## used .groups as suggested by the warning
 ```
-
-
-
+used .groups as suggested by the warning
 
 
 
@@ -136,4 +131,18 @@ HGset |>
   geom_bar()
 
 ```
+### Q12
+```{r}
+library(tidyr)
+```
+We will use pivot_wider since we want to have more columns, one column for each course. Before that we need to group by and compute the average grade.
+```{r}
+new_grades_pivoted =
+  grades |>
+  group_by(id,group,course) |>
+  summarise(avg_grade = mean(grade),.groups = "drop") |>
+  pivot_wider(names_from = course,values_from = avg_grade)
+```
 
+
+### Q13
