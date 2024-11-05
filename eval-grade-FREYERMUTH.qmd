@@ -144,5 +144,14 @@ new_grades_pivoted =
   pivot_wider(names_from = course,values_from = avg_grade)
 ```
 
+`r  new_grades_pivoted |> slice_tail(n = 5) |>knitr::kable()`
+
 
 ### Q13
+
+```{r}
+new_grades_pivoted |>
+  ggplot(aes(x = `Language and Linguistics`, y = `Warfare and Diplomacy`))+
+  geom_point(alpha = 0.5)
+```
+
