@@ -118,3 +118,22 @@ HGset = grades |>
 ```
 Here is a small extract of the dataset for Question 9 
 `r  HGset |> slice_tail(n = 5) |>knitr::kable()`
+
+
+
+Q10
+```{r}
+HGset |>
+  ggplot(aes(x = num_grades))+
+  geom_bar()
+```
+### Q11
+A good way is to plot the number of grades/student conditional to
+the group. we need to change the group type as a factor
+```{r}
+HGset |>
+  ggplot(aes(x = num_grades,fill = as.factor(group)))+
+  geom_bar()
+
+```
+
