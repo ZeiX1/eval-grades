@@ -82,3 +82,27 @@ grades |>
   facet_wrap(~semester)
 ```
 
+
+
+## Q8
+
+
+```{r}
+grades |>
+  group_by(id, group) |>
+  summarise(num_grades = n(),.groups = "drop") |>
+  summarise(min = min(num_grades), max = max(num_grades),average = mean(num_grades)) |>
+  knitr::kable()
+
+
+
+## used .groups as suggested by the warning
+```
+
+
+
+
+
+
+
+### Q9
