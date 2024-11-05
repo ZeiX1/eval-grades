@@ -164,7 +164,26 @@ new_grades_pivoted |>
   summarise(correlation = cor(`Language and Linguistics`, `Astronomy and Celestial Navigation`),.groups = "drop") |>
   knitr::kable()
 ```
-```{r}
 
+
+
+## Q15
+We use the code in Q14 and we use pull() to get the group were the correlation is the strongest, in absolute value by using arrange(desc()). 
+```{r}
+correl = new_grades_pivoted |>
+  group_by(group) |>
+  summarise(correlation = cor(`Language and Linguistics`, `Astronomy and Celestial Navigation`),.groups = "drop")
+
+most_corr = correl |> arrange(desc(abs(correl))) |>
+  slice(1) |> pull(group) ## pull groups gives us the number of the group in wich the correlation is the strongest.
+```
+We can now plot the result for group 19.
+
+```{r}
+new_grades_pivoted |>
+  filter(group == 19) |>
+  ggplot(aes(x = `Astronomy and Celestial Navigation`, y = `Language and Linguistics`))+
+  geom_point()
+  
 ```
 
