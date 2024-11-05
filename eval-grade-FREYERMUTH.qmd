@@ -155,3 +155,16 @@ new_grades_pivoted |>
   geom_point(alpha = 0.5)
 ```
 
+
+###Q14
+
+```{r}
+new_grades_pivoted |>
+  group_by(group) |>
+  summarise(correlation = cor(`Language and Linguistics`, `Astronomy and Celestial Navigation`),.groups = "drop") |>
+  knitr::kable()
+```
+```{r}
+
+```
+
