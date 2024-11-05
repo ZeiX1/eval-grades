@@ -60,3 +60,25 @@ students |>
 ```
 
 
+### Q6
+```{r}
+grades |>
+  filter(course == "Herbalism and Medicine")|>
+  group_by(group) |>
+  summarize(avg_grade = mean(grade,na.rm = TRUE)) |>
+  ggplot(aes(x = group, y = avg_grade)) +
+  geom_col()+
+  ylim(0,20)
+  
+```
+
+# Q7
+
+```{r}
+grades |>
+  group_by(semester) |>
+  ggplot(aes(x = grade)) +
+  geom_bar() +
+  facet_wrap(~semester)
+```
+
