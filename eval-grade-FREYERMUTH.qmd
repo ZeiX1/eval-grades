@@ -1,0 +1,14 @@
+---
+title: "graded-lab-FREYERMUTH"
+author: "Timothée Freyermuth"
+format: html
+---
+### Specify here and load librairies
+```{r}
+here::i_am("eval-grades-FREYERMUTH.Rproj")
+library(here)
+library(vroom)
+library(ggplot2)
+theme_set(theme_bw())
+```
+
