@@ -10,5 +10,33 @@ library(here)
 library(vroom)
 library(ggplot2)
 theme_set(theme_bw())
+
 ```
+## Data Load
+```{r}
+grades = vroom(here("data","grades.csv"))
+```
+
+```{r}
+library(tidyr)
+library(dplyr)
+```
+
+### Q2
+Le dataset contient `r nrow(grades)` notes, on a utilisé nrow(grades).
+
+
+#### Q3
+```{r}
+nb_student = grades |>
+  distinct(id) |>
+  nrow()
+```
+
+There is `r nb_student` in the dataset
+
+```{r}
+
+```
+
 
