@@ -38,6 +38,7 @@ There is `r nb_student` in the dataset
 
 ### Question 4
 ```{r}
+
 students = grades |>
   select(id,group) |>
   distinct()
@@ -46,6 +47,16 @@ students = grades |>
 students |>
   slice_tail(n = 5) |>
   knitr::kable()
+```
+
+
+## Q5
+```{r}
+students |>
+  group_by(group) |>
+  ggplot(aes(x = group))+
+  geom_bar()
+  
 ```
 
 
