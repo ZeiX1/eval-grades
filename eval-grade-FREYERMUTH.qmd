@@ -187,3 +187,18 @@ new_grades_pivoted |>
   
 ```
 
+### Q16
+
+```{r}
+final_grade_set = new_grades_pivoted |>
+  rowwise() |>
+  mutate(final_grade = mean(c(`Art and Symbolism`,`Astronomy and Celestial Navigation`,`Environmental Stewardship`,`Herbalism and Medicine`,`Hunting and Gathering Skills`,`Language and Linguistics`,`Shamanism and Spiritual Practices`,`Social Organization and Governance`,`Tribal Lore and Traditions`,`Warfare and Diplomacy`))) |>
+  select(id,group,final_grade) |>
+  arrange(desc(final_grade))
+```
+
+
+Here is a small extract : `r final_grade_set|> slice_tail(n = 5) |>knitr::kable()`
+
+
+
