@@ -200,5 +200,12 @@ final_grade_set = new_grades_pivoted |>
 
 Here is a small extract : `r final_grade_set|> slice_tail(n = 5) |>knitr::kable()`
 
+### Q17
+
+```{r}
+final_grade_set |>
+  ggplot(aes(x = final_grade, fill = as.factor(group))) +
+  geom_bar()
+```
 
 
