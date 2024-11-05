@@ -106,3 +106,15 @@ grades |>
 
 
 ### Q9
+
+
+```{r}
+HGset = grades |>
+  filter(course == "Hunting and Gathering Skills") |>
+  group_by(id,group) |>
+  summarise(num_grades = n(),.groups = "drop")
+  
+  
+```
+Here is a small extract of the dataset for Question 9 
+`r  HGset |> slice_tail(n = 5) |>knitr::kable()`
