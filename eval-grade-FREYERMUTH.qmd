@@ -35,8 +35,17 @@ nb_student = grades |>
 
 There is `r nb_student` in the dataset
 
-```{r}
 
+### Question 4
+```{r}
+students = grades |>
+  select(id,group) |>
+  distinct()
+```
+```{r}
+students |>
+  slice_tail(n = 5) |>
+  knitr::kable()
 ```
 
 
